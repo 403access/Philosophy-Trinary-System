@@ -1,0 +1,151 @@
+.section {
+  position: relative;
+}
+
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2.6rem;
+  flex-wrap: wrap;
+}
+
+.title {
+  margin-bottom: 0;
+}
+
+.track {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.track::before {
+  content: '';
+  position: absolute;
+  top: 11px;
+  left: 2%;
+  right: 2%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--teal-500),
+    var(--teal-500) 55%,
+    var(--rule-strong) 55%,
+    var(--rule-strong)
+  );
+  z-index: 0;
+}
+
+.item {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.marker {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper-sunken);
+  border: 2px solid var(--rule-strong);
+  margin-top: 0;
+}
+
+.marker span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--rule-strong);
+}
+
+.done .marker {
+  background: var(--teal-700);
+  border-color: var(--teal-700);
+}
+
+.done .marker span {
+  background: var(--paper);
+}
+
+.active .marker {
+  background: var(--paper-raised);
+  border-color: var(--teal-600);
+  box-shadow: 0 0 0 5px rgba(15, 107, 107, 0.14);
+}
+
+.active .marker span {
+  background: var(--teal-600);
+}
+
+.next .marker {
+  border-color: var(--teal-400);
+}
+
+.content {
+  padding-top: 0.35rem;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.itemTitle {
+  font-size: 0.98rem;
+  margin: 0.2rem 0 0.35rem;
+}
+
+.itemBody {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+@media (max-width: 996px) {
+  .track {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+
+  .track::before {
+    top: 4%;
+    bottom: 4%;
+    left: 11px;
+    right: auto;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(
+      180deg,
+      var(--teal-500),
+      var(--teal-500) 55%,
+      var(--rule-strong) 55%,
+      var(--rule-strong)
+    );
+  }
+
+  .item {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .content {
+    padding-top: 0;
+  }
+}

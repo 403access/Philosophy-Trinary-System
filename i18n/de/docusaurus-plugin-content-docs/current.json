@@ -1,0 +1,26 @@
+{
+  "version.label": {
+    "message": "Aktuell",
+    "description": "The label for version current"
+  },
+  "sidebar.docs.category.Grundlagen": {
+    "message": "Grundlagen",
+    "description": "The label for category 'Grundlagen' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Die Trinäritäts-Theorie": {
+    "message": "Die Trinäritäts-Theorie",
+    "description": "The label for category 'Die Trinäritäts-Theorie' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Anwendungen": {
+    "message": "Anwendungen",
+    "description": "The label for category 'Anwendungen' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Forschung & Umsetzung": {
+    "message": "Forschung & Umsetzung",
+    "description": "The label for category 'Forschung & Umsetzung' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Implementierung": {
+    "message": "Implementierung",
+    "description": "The label for category 'Implementierung' in sidebar 'docs'"
+  }
+}

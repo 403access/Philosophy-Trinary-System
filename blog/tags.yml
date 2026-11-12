@@ -1,0 +1,24 @@
+trinaeritaet:
+  label: Trinärität
+  permalink: /tags/trinaeritaet
+  description: Kern, Projektionen und die Logik der Perspektive.
+
+formalisierung:
+  label: Formalisierung
+  permalink: /tags/formalisierung
+  description: Axiome, Definitionen und Beweise.
+
+mereologie:
+  label: Mereologie
+  permalink: /tags/mereologie
+  description: Teile, Ganze und strukturelle Einheit.
+
+ki:
+  label: KI
+  permalink: /tags/ki
+  description: Neuro-symbolische Systeme und Wissensrepräsentation.
+
+roadmap:
+  label: Roadmap
+  permalink: /tags/roadmap
+  description: Meilensteine und offene Fragen.

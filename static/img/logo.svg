@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="Trinärität: Zentrum und zwei Projektionen">
+  <circle cx="32" cy="32" r="29" stroke="#0f6b6b" stroke-opacity="0.18" stroke-width="1.5"/>
+  <path d="M32 33 L16.5 48.5" stroke="#0f6b6b" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M32 33 L47.5 48.5" stroke="#0f6b6b" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M16.5 48.5 L47.5 48.5" stroke="#b07a1e" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="3 4"/>
+  <circle cx="32" cy="32" r="6.4" fill="#0f6b6b"/>
+  <circle cx="32" cy="32" r="2.6" fill="#fbfaf6"/>
+  <circle cx="16.5" cy="48.5" r="4.2" fill="#0f6b6b"/>
+  <circle cx="47.5" cy="48.5" r="4.2" fill="#0f6b6b"/>
+</svg>

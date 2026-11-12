@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b5353"/>
+      <stop offset="0.55" stop-color="#0f6b6b"/>
+      <stop offset="1" stop-color="#083f3f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.72" cy="0.3" r="0.6">
+      <stop offset="0" stop-color="#6cc6c1" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#6cc6c1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <text x="90" y="150" fill="#a9ded9" font-family="Inter, Helvetica, Arial, sans-serif" font-size="26" letter-spacing="7" font-weight="700">FORSCHUNGSPROGRAMM · V0.1</text>
+  <text x="90" y="268" fill="#fbfaf6" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-weight="700">Mathematische</text>
+  <text x="90" y="360" fill="#fbfaf6" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-weight="700">Philosophie</text>
+  <text x="92" y="430" fill="#d7f0ed" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30">Formale Ontologie · Trinärität · Logik der Perspektive</text>
+
+  <g transform="translate(900 330)" opacity="0.95">
+    <circle r="150" fill="none" stroke="#a9ded9" stroke-opacity="0.25" stroke-width="2"/>
+    <path d="M0 6 L-86 96" stroke="#fbfaf6" stroke-width="5" stroke-linecap="round"/>
+    <path d="M0 6 L86 96" stroke="#fbfaf6" stroke-width="5" stroke-linecap="round"/>
+    <path d="M-86 96 L86 96" stroke="#e0b25a" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 9"/>
+    <circle r="26" fill="#fbfaf6"/>
+    <circle r="10" fill="#0f6b6b"/>
+    <circle cx="-86" cy="96" r="16" fill="#fbfaf6"/>
+    <circle cx="86" cy="96" r="16" fill="#fbfaf6"/>
+  </g>
+</svg>
