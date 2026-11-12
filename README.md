@@ -19,12 +19,13 @@ Dokumentation und druckfertiges Paper.
   ein automatisch gesetztes A4-PDF.
 - **Forschungslog** (`/forschung`) — Notizen und Zwischenstände.
 - **PDF-Export** — Headless-Chrome-Rendering der Dokumentation zu einem
-  akademisch gesetzten Paper (`npm run build:pdf`).
+  akademisch gesetzten Paper (`bun run build:pdf`).
 
 ## Technik
 
 | Baustein | Version / Zweck |
 | --- | --- |
+| Bun | 1.4 — Paketmanager und Script-Runner |
 | Docusaurus | 3.10 (Classic Preset, TypeScript) |
 | React | 19 |
 | KaTeX | Formelsatz via `remark-math` + `rehype-katex` |
@@ -34,16 +35,18 @@ Dokumentation und druckfertiges Paper.
 
 ## Schnellstart
 
+Voraussetzung: **Bun ≥ 1.4** (kein npm nötig).
+
 ```bash
-npm install
-npm run start        # Dev-Server auf http://localhost:3000/Philosophy-Trinary-System/
+bun install
+bun run start        # Dev-Server auf http://localhost:3000/Philosophy-Trinary-System/
 ```
 
 Produktions-Build:
 
 ```bash
-npm run build
-npm run serve        # gebaute Site lokal testen
+bun run build
+bun run serve        # gebaute Site lokal testen
 ```
 
 ## PDF erzeugen
@@ -51,14 +54,14 @@ npm run serve        # gebaute Site lokal testen
 Das PDF wird **nach** dem Build aus der gerenderten Dokumentation erzeugt:
 
 ```bash
-npm run build:pdf
+bun run build:pdf
 ```
 
 Das entspricht:
 
 ```bash
-npm run build
-npm run pdf
+bun run build
+bun run pdf
 ```
 
 Ergebnis:
@@ -83,7 +86,7 @@ Die Site wird automatisch über **GitHub Actions** auf **GitHub Pages** deployt.
 - **Workflow:** `.github/workflows/deploy.yml`
 - **Trigger:** Push auf `main` oder manuell über `workflow_dispatch`
 - **Pages-Quelle:** GitHub Actions (`Settings → Pages → Build and deployment`)
-- **Build:** `npm ci` → `npm run build` → Upload des `build/`-Verzeichnisses
+- **Build:** `bun install --frozen-lockfile` → `bun run build` → Upload des `build/`-Verzeichnisses
 
 Die `baseUrl` ist auf `/Philosophy-Trinary-System/` gesetzt, weil es sich um
 eine Projektseite handelt. Für eine Custom Domain müssen `url` und `baseUrl` in
@@ -91,7 +94,7 @@ eine Projektseite handelt. Für eine Custom Domain müssen `url` und `baseUrl` i
 
 Das PDF liegt bereits unter `static/pdf/` im Repository und wird dadurch ohne
 zusätzlichen CI-Schritt mitdeployt. Nach inhaltlichen Änderungen kann es lokal
-mit `npm run build:pdf` neu erzeugt und eingecheckt werden.
+mit `bun run build:pdf` neu erzeugt und eingecheckt werden.
 
 ## Visual QA
 

@@ -9,11 +9,11 @@
  *   5. merge cover + TOC + chapters and stamp page numbers
  *
  * Usage:
- *   npm run build
- *   npm run pdf
+ *   bun run build
+ *   bun run pdf
  *
  * or simply:
- *   npm run build:pdf
+ *   bun run build:pdf
  */
 import http from 'node:http';
 import fs from 'node:fs';
@@ -546,7 +546,7 @@ const pageMargin = {
 async function main() {
   if (!fs.existsSync(buildDir)) {
     console.error(
-      '✖ Kein build/-Verzeichnis gefunden. Bitte zuerst `npm run build` ausführen.',
+      '✖ Kein build/-Verzeichnis gefunden. Bitte zuerst `bun run build` ausführen.',
     );
     process.exit(1);
   }
