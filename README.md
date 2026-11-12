@@ -63,7 +63,7 @@ npm run pdf
 
 Ergebnis:
 
-- `static/pdf/trinaeritaet-paper.pdf` (im Repository, ~40 Seiten)
+- `static/pdf/trinaeritaet-paper.pdf` (im Repository, 50 Seiten)
 - `build/pdf/trinaeritaet-paper.pdf` (vom Server ausgeliefert)
 
 Der Export nutzt:

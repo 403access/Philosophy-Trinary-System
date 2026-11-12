@@ -146,7 +146,7 @@ export default function PaperPage(): ReactNode {
               </div>
               <div>
                 <dt>Umfang</dt>
-                <dd>40 Seiten</dd>
+                <dd>50 Seiten</dd>
               </div>
               <div>
                 <dt>Lizenz</dt>
