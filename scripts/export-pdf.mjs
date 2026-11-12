@@ -20,7 +20,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import puppeteer from 'puppeteer';
-import {PDFDocument, StandardFonts, rgb} from 'pdf-lib';
+import {PDFDocument, PDFName, StandardFonts, rgb} from 'pdf-lib';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
@@ -481,6 +481,61 @@ function stampPageNumbers(pdfDoc, font) {
   });
 }
 
+/**
+ * Turn the printed TOC rows into clickable internal links.
+ * Puppeteer returns the row rectangles in CSS pixels; convert them to
+ * PDF points and attach a /Link annotation with a /GoTo destination.
+ */
+function addTocLinks(pdfDoc, tocPageIndex, entries, rects) {
+  if (!entries || !rects || entries.length !== rects.length) return;
+
+  const pages = pdfDoc.getPages();
+  const tocPage = pages[tocPageIndex];
+  if (!tocPage) return;
+
+  const pageHeight = tocPage.getHeight();
+  const mmToPt = 72 / 25.4;
+  const marginX = 20 * mmToPt;
+  const marginTop = 20 * mmToPt;
+  const pxToPt = 72 / 96;
+
+  let annots = tocPage.node.Annots();
+  if (!annots) {
+    annots = pdfDoc.context.obj([]);
+    tocPage.node.set(PDFName.of('Annots'), annots);
+  }
+
+  entries.forEach((entry, index) => {
+    const rect = rects[index];
+    const targetPage = pages[entry.page - 1];
+    if (!rect || !targetPage) return;
+
+    const x1 = marginX + rect.left * pxToPt;
+    const x2 = marginX + rect.right * pxToPt;
+    const y1 = pageHeight - marginTop - rect.bottom * pxToPt;
+    const y2 = pageHeight - marginTop - rect.top * pxToPt;
+
+    const destination = pdfDoc.context.obj([
+      targetPage.ref,
+      PDFName.of('Fit'),
+    ]);
+
+    const annotation = pdfDoc.context.obj({
+      Type: 'Annot',
+      Subtype: 'Link',
+      Rect: [x1, y1, x2, y2],
+      Border: [0, 0, 0],
+      A: {
+        Type: 'Action',
+        S: 'GoTo',
+        D: destination,
+      },
+    });
+
+    annots.push(pdfDoc.context.register(annotation));
+  });
+}
+
 const pageMargin = {
   top: '20mm',
   right: '20mm',
@@ -555,6 +610,8 @@ async function main() {
     // 3. Table of contents — page numbers depend on the TOC's own length.
     let tocPages = 1;
     let tocBuffer;
+    let tocEntries;
+    let tocRects;
     for (let attempt = 0; attempt < 4; attempt += 1) {
       let cursor = 1 + tocPages + 1; // cover + toc + 1-based page numbers
       const entries = chapters.map((chapter, index) => {
@@ -572,7 +629,28 @@ async function main() {
         }) …`,
       );
       const tocPage = await browser.newPage();
+      // Match the A4 content width (210mm - 2×20mm ≈ 643 CSS px) so the
+      // measured row rectangles line up with the printed PDF layout.
+      await tocPage.setViewport({
+        width: 643,
+        height: 1000,
+        deviceScaleFactor: 1,
+      });
       await tocPage.setContent(tocHtml(entries), {waitUntil: 'networkidle0'});
+
+      // Capture the exact row geometry so we can attach clickable PDF links.
+      const rowRects = await tocPage.evaluate(() =>
+        Array.from(document.querySelectorAll('.row')).map((el) => {
+          const rect = el.getBoundingClientRect();
+          return {
+            left: rect.left,
+            top: rect.top,
+            right: rect.right,
+            bottom: rect.bottom,
+          };
+        }),
+      );
+
       tocBuffer = await tocPage.pdf({
         format: 'A4',
         printBackground: true,
@@ -581,7 +659,11 @@ async function main() {
       await tocPage.close();
 
       const actualTocPages = (await PDFDocument.load(tocBuffer)).getPageCount();
-      if (actualTocPages === tocPages) break;
+      if (actualTocPages === tocPages) {
+        tocEntries = entries;
+        tocRects = rowRects;
+        break;
+      }
       tocPages = actualTocPages;
     }
 
@@ -595,6 +677,7 @@ async function main() {
     }
 
     const font = await merged.embedFont(StandardFonts.Helvetica);
+    addTocLinks(merged, 1, tocEntries, tocRects);
     stampPageNumbers(merged, font);
 
     merged.setTitle(
