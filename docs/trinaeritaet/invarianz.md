@@ -62,9 +62,25 @@ Aus den Definitionen folgen unmittelbar:
 | Eigenschaft | Aussage | Bedeutung |
 | --- | --- | --- |
 | Identität | $\mathrm{Adm}(\langle k,\sigma,\mathrm{id}\rangle)$ | Der Kern ist stets zulässig |
-| Komposition | $\mathrm{Adm}(\rho_1), \mathrm{Adm}(\rho_2) \Rightarrow \mathrm{Adm}(\rho_1\circ\rho_2)$ | Zulässigkeit ist abgeschlossen |
+| Komposition | $\mathrm{Inv}(\rho_1), \mathrm{Inv}(\rho_2) \Rightarrow \mathrm{Inv}(\rho_1\circ\rho_2)$ | Globale Invarianz ist abgeschlossen |
 | Invarianz unter $\nu$ | $\mathrm{Adm}(\langle k,\sigma,\rho\rangle) \Leftrightarrow \mathrm{Adm}(\langle k,\nu(\sigma),\rho\rangle)$ | Valenz und Zulässigkeit sind orthogonal |
 | Nicht-Mutation | $\mathcal{I}(\rho(k))\neq\mathcal{I}(k) \Rightarrow \neg\mathrm{Adm}$ | Kernverletzung ist absolut |
+
+Dabei ist $\mathrm{Inv}(\rho) :\Longleftrightarrow \forall k.\,\mathcal{I}(\rho(k))=\mathcal{I}(k)$
+die **globale** Invarianz, strenger als die punktuelle Admissibilität
+$\mathrm{Adm}(\langle k,\sigma,\rho\rangle)$.
+
+:::warning[Korrektur gegenüber v0.1]
+Die frühere Fassung behauptete die Kompositionseigenschaft für die punktuelle
+Admissibilität. Das ist **falsch**: Aus $\mathcal{I}(\rho_2(k))=\mathcal{I}(k)$
+und $\mathcal{I}(\rho_1(k))=\mathcal{I}(k)$ folgt nicht
+$\mathcal{I}(\rho_1(\rho_2(k)))=\mathcal{I}(\rho_2(k))$. Ein maschinell
+geprüftes Gegenbeispiel steht in
+[Formale Verifikation](/docs/forschung/formale-verifikation)
+(`adm_not_closed_under_comp`). Punktuelle Admissibilität bewertet eine einzelne
+Perspektive; globale Invarianz ist der richtige Begriff für die Kombination
+von Lesarten.
+:::
 
 Die dritte Eigenschaft ist wichtig: **Zulässigkeit hängt nicht von der Valenz
 ab.** Ob eine Perspektive gut oder schlecht findet, sagt nichts darüber, ob sie

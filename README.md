@@ -20,6 +20,9 @@ Dokumentation und druckfertiges Paper.
 - **Forschungslog** (`/forschung`) — Notizen und Zwischenstände.
 - **PDF-Export** — Headless-Chrome-Rendering der Dokumentation zu einem
   akademisch gesetzten Paper (`bun run build:pdf`).
+- **Formale Verifikation** (`formal/`) — Lean-4-Beweis des Kernkalküls:
+  Träger, Admissibilität, Auswertung und Nicht-Kollaps-Satz, ohne Mathlib
+  (`bun run verify`).
 
 ## Technik
 
@@ -78,6 +81,33 @@ Der Export nutzt:
 
 Konfiguration der Kapitelreihenfolge: `scripts/export-pdf.mjs` → `chapters`.
 
+## Formale Verifikation
+
+Der Kernkalkül ist in **Lean 4** formalisiert und maschinell geprüft. Das
+Projekt hängt bewusst nicht von Mathlib ab; der Build dauert Sekunden.
+
+```bash
+bun run verify        # entspricht: cd formal && lake build
+```
+
+Geprüft sind unter anderem:
+
+- die Involution $\nu$ und ihre Nicht-Trivialität,
+- die Admissibilitätsbedingung und ihre Unabhängigkeit von der Valenz,
+- die Eindeutigkeit der Kernpräsentation (Wert $0$),
+- der Nicht-Kollaps-Satz als konstruktiver Erfüllbarkeitssatz,
+- die Grenzfälle konstanter (F1) und injektiver Invarianten.
+
+Der Beweis hat zwei Prosa-Behauptungen korrigiert: Die Kompositionseigenschaft
+gilt nur für globale Invarianz, nicht für punktuelle Admissibilität; und die
+wörtliche Fassung von T1 („genau eine Kernpräsentation“) ist falsch. Als neuer
+Satz kommt hinzu: Echte Drift existiert genau dann, wenn die Invariante nicht
+injektiv ist. Details:
+[`docs/forschung/formale-verifikation.md`](docs/forschung/formale-verifikation.md).
+
+CI: `.github/workflows/lean.yml` baut mit `--wfail` und führt ein Axiom-Audit
+durch (keine `sorry`-Platzhalter).
+
 ## Deployment (GitHub Pages)
 
 Die Site wird automatisch über **GitHub Actions** auf **GitHub Pages** deployt.
@@ -116,6 +146,7 @@ Erzeugt Screenshots von Startseite, Docs, Roadmap, Paper und Forschungslog in
 │  ├─ forschung/             # Programm, Paper-Outline, Falsifizierbarkeit
 │  └─ implementierung/       # Architektur, TypeScript, Rust
 ├─ blog/                     # Forschungslog
+├─ formal/                   # Lean-4-Formalisierung und Beweise
 ├─ src/
 │  ├─ pages/                 # /, /roadmap, /paper
 │  ├─ components/            # Triade-, Nesting-, Feature-, Roadmap-Komponenten

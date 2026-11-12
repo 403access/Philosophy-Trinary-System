@@ -58,6 +58,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'forschung/paper-outline',
         'forschung/falsifizierbarkeit',
+        'forschung/formale-verifikation',
         'forschung/offene-fragen',
         'forschung/roadmap',
       ],

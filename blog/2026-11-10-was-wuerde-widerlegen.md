@@ -44,6 +44,14 @@ zusammenfällt, verliert der Wahrheitsbegriff seine Funktion.
 | F4 | Lean-Formalisierung ausstehend |
 | F5 | programmatisch |
 
+:::note[Nachtrag (12.11.2026)]
+F2 und F4 sind für den Kernkalkül erledigt: Der Nicht-Kollaps-Satz ist jetzt
+maschinell geprüft, ebenso Admissibilität, Auswertung und die Grenzfälle
+konstanter/injektiver Invarianten. Siehe
+[Formale Verifikation](/docs/forschung/formale-verifikation). Offen bleibt die
+empirische Frage F3.
+:::
+
 Die Theorie ist derzeit **nicht** falsifiziert — aber auch noch nicht
 hinreichend getestet.
 

@@ -48,6 +48,18 @@ Negation ableitet — **dann** ist das System unbrauchbar.
 
 **Test:** Formalisierung in Lean/Coq; maschinelle Konsistenzprüfung.
 
+**Status:** Für den Kernkalkül **erledigt** (Lean 4, [`formal/`](https://github.com/403access/Philosophy-Trinary-System/tree/main/formal)).
+Der Build läuft ohne `sorry` und ohne Warnungen; geprüft sind Träger,
+Admissibilität, Auswertung, Nicht-Kollaps sowie die Grenzfälle konstanter und
+injektiver Invarianten. Details und die gefundenen Korrekturen stehen in
+[Formale Verifikation](/docs/forschung/formale-verifikation).
+
+:::note[Was damit nicht gezeigt ist]
+F4 ist ein Konsistenzkriterium, kein Anwendbarkeitskriterium. Der Beweis zeigt:
+*Wenn* man die Definitionen akzeptiert, ist das Modell konsistent. Er zeigt
+nicht, dass die Definitionen die richtigen sind.
+:::
+
 ### F5 — Wahrheits-Kriterium
 
 **Wenn** der Begriff der „Perspektivwahrheit“ auf einen bloßen Relativismus
@@ -88,9 +100,9 @@ gleichzeitiger Beibehaltung normativer Perspektiven.
 | Kriterium | Status |
 | --- | --- |
 | F1 Vakuum | ⚠️ offen — Invariantenwahl muss begründet werden |
-| F2 Inkohärenz | ✅ Nicht-Kollaps-Satz (formaler Beweis) |
+| F2 Inkohärenz | ✅ Nicht-Kollaps-Satz (maschinell geprüft) |
 | F3 Nutzlosigkeit | ⚠️ Prototyp vorhanden, Evaluation ausstehend |
-| F4 Konsistenz | ⚠️ Lean-Formalisierung ausstehend |
+| F4 Konsistenz | ✅ Kernkalkül in Lean 4 geprüft (`formal/`) |
 | F5 Wahrheit | ⚠️ Wahrheitstheorie programmatisch |
 
 ## Die ehrliche Bilanz

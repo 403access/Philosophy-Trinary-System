@@ -1,7 +1,7 @@
 ---
 title: Roadmap
 description: Meilensteine, Deliverables und Status des Forschungsprogramms.
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # Roadmap
@@ -24,7 +24,7 @@ Aktueller Stand: **Phase 3 — Proof of Concept**. Die formale Definition steht
 | Träger $T=\{-1,0,+1\}$ | ✅ |
 | Kernrahmen $\langle K,\mathcal{I}\rangle$ | ✅ |
 | Admissibilitätsbedingung | ✅ |
-| Nicht-Kollaps-Satz | ✅ (informell) |
+| Nicht-Kollaps-Satz | ✅ (maschinell geprüft) |
 
 → [Formale Definition](/docs/trinaeritaet/formale-definition)
 
@@ -48,7 +48,7 @@ Aktueller Stand: **Phase 3 — Proof of Concept**. Die formale Definition steht
 | --- | --- |
 | TypeScript-Prototyp | 🔄 |
 | Rust-Prototyp | ⬜ |
-| Lean-Formalisierung | ⬜ |
+| Lean-Formalisierung | ✅ |
 | Fallstudie verteiltes System | ⬜ |
 
 → [Implementierung](/docs/implementierung/architektur)
@@ -85,7 +85,7 @@ Aktueller Stand: **Phase 3 — Proof of Concept**. Die formale Definition steht
 2026 Q4  ├─ Formale Definition v0.1        ✅
          ├─ Literaturbericht               ✅
 2027 Q1  ├─ TypeScript-Prototyp            🔄
-         ├─ Lean-Formalisierung            ⬜
+         ├─ Lean-Formalisierung            ✅ (vorgezogen)
 2027 Q2  ├─ Fallstudie                     ⬜
          ├─ Paper-Entwurf                  ⬜
 2027 Q3  ├─ Interne Reviews                ⬜
@@ -106,8 +106,7 @@ Aktueller Stand: **Phase 3 — Proof of Concept**. Die formale Definition steht
 ## Nächste konkrete Schritte
 
 1. TypeScript-Prototyp fertigstellen und testen.
-2. Lean-Definition der Axiome T1–T6.
-3. Fallstudie: verteiltes System mit zwei Replikaten.
-4. Erste Paper-Vollfassung.
+2. Fallstudie: verteiltes System mit zwei Replikaten (TLA+-Modell der Konvergenz).
+3. Paper-Vollfassung inklusive Sektion „Formale Verifikation“.
 
 → [Forschungsprogramm](/docs/forschung/forschungsprogramm)

@@ -4,6 +4,9 @@
 # Production
 /build
 
+# Lean build artifacts
+/formal/.lake
+
 # Generated files
 .docusaurus
 .cache-loader

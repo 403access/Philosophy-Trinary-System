@@ -15,6 +15,14 @@ Die folgende Formalisierung ist **v0.1**. Sie ist konsistent konstruiert, aber
 nicht als kanonisch zu betrachten. Offene Stellen sind markiert.
 :::
 
+:::tip[Maschinegeprüft]
+Definitionen, Admissibilität und der Nicht-Kollaps-Satz sind in Lean 4
+formalisiert und mit `lake build` geprüft. Die Referenzimplementierung liegt in
+[`formal/`](https://github.com/403access/Philosophy-Trinary-System/tree/main/formal);
+eine Übersicht der Sätze und Grenzen gibt
+[Formale Verifikation](/docs/forschung/formale-verifikation).
+:::
+
 ## 1. Der trinäre Träger
 
 **Definition 1 (Träger).** Der trinäre Träger ist die Menge
@@ -117,7 +125,10 @@ Perspektive verletzt die Integrität und wird abgewiesen.
 
 ## 6. Axiome
 
-**T1 — Zentrum.** Es gibt genau eine Kernpräsentation pro Kernrahmen.
+**T1 — Zentrum.** Der Wert $0$ ist eindeutig:
+$v(p)=0 \Longleftrightarrow \rho=\mathrm{id}$. (Wörtlich „genau eine Perspektive
+mit $\rho=\mathrm{id}$“ wäre falsch, weil $k$ und $\sigma$ variieren; siehe
+[Formale Verifikation](/docs/forschung/formale-verifikation).)
 
 **T2 — Involution.** $\nu \circ \nu = \mathrm{id}$ und $\nu(0)=0$.
 
@@ -152,6 +163,12 @@ Der Satz zeigt nur, dass das Modell **konsistent konstruiert** ist. Er zeigt
 nicht, dass es auf jede philosophische Frage anwendbar ist. Die
 Anwendbarkeit ist eine separate, empirische Frage.
 :::
+
+Die Lean-Fassung präzisiert den Satz als **Erfüllbarkeitssatz**: Es gibt einen
+konkreten Kernrahmen, in dem zwei zulässige Perspektiven entgegengesetzter
+Valenz koexistieren und verschiedene Werte erhalten (`noncollapse`). Mehr
+behauptet der Satz nicht — siehe
+[Formale Verifikation](/docs/forschung/formale-verifikation).
 
 ## 8. Beispielinstanz
 

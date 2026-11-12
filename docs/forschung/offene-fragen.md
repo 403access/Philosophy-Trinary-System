@@ -1,7 +1,7 @@
 ---
 title: Offene Fragen
 description: Die priorisierten Probleme, an denen das Forschungsprogramm arbeitet.
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Offene Fragen
@@ -31,8 +31,10 @@ Behauptung.
 
 ### F0.3: Ist das System konsistent?
 
-Die formale Definition muss maschinell geprüft werden (Lean/Coq). Ein
-informeller Konsistenzbeweis reicht nicht.
+Der **Kernkalkül** ist in Lean 4 maschinell geprüft (`formal/`, siehe
+[Formale Verifikation](/docs/forschung/formale-verifikation)). Offen bleibt die
+Konsistenz *konkreter Invarianten* in einer Domäne sowie die Konvergenz der
+verteilten Implementierung.
 
 **Warum kritisch:** F4-Kriterium der [Falsifizierbarkeit](/docs/forschung/falsifizierbarkeit).
 

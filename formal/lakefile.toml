@@ -1,0 +1,6 @@
+name = "trinary"
+version = "0.1.0"
+defaultTargets = ["Trinary"]
+
+[[lean_lib]]
+name = "Trinary"

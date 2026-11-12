@@ -86,7 +86,8 @@ Bilateralismus · Trinärität · neuro-symbolische KI · Wissensrepräsentation
 ### 6. Fazit & Ausblick
 
 - Zusammenfassung der Beiträge.
-- Nächste Schritte (formale Semantik, empirische Studien, Lean-Formalisierung).
+- Nächste Schritte (empirische Studien, TLA+-Modell der CRDT-Konvergenz,
+  Erweiterung der Lean-Formalisierung).
 
 **Länge:** 800 Wörter.
 
