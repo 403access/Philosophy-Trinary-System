@@ -99,7 +99,7 @@ Aktueller Stand: **Phase 3 — Proof of Concept**. Die formale Definition steht
 | Risiko | Wahrscheinlichkeit | Gegenmaßnahme |
 | --- | --- | --- |
 | Invariante bleibt unterbestimmt | hoch | Fallstudie mit konkreter Domäne |
-| Formalisierung zeigt Inkonsistenz | mittel | frühzeitige Lean-Prüfung |
+| Formalisierung zeigt Inkonsistenz | mittel | Kernkalkül geprüft; Domänenmodelle offen |
 | Kein empirischer Vorteil | mittel | Baseline-Vergleich von Anfang an |
 | Scope Creep | hoch | Fokus auf eine Domäne |
 

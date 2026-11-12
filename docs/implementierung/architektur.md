@@ -140,7 +140,10 @@ Kernpräsentation zulässig, Mutation unzulässig, Valenz orthogonal.
 | --- | --- | --- |
 | TypeScript | schnelle Prototypen, UI | Web, Demonstration |
 | Rust | Korrektheit, Performance | Kernbibliothek, verteilte Systeme |
-| Lean / Coq | formale Beweise | Konsistenzprüfung |
+| Lean 4 | formale Beweise | Konsistenzprüfung des Kernkalküls (`formal/`) |
+
+Der Kernkalkül ist in Lean 4 formalisiert; die Sätze und ihre Grenzen stehen in
+[Formale Verifikation](/docs/forschung/formale-verifikation).
 
 → [TypeScript-Implementierung](/docs/implementierung/typescript)
 → [Rust-Implementierung](/docs/implementierung/rust)

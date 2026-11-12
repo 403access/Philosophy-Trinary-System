@@ -36,7 +36,9 @@ Diese Seite ist zugleich **Lehrbuch**, **Forschungsprogramm** und
 :::note[Status]
 Es handelt sich um ein **offenes Forschungsprogramm** (Preprint v0.1). Die
 Theorie ist kein etablierter Konsens. Genau deshalb ist sie so aufgebaut, dass
-sie scheitern *kann* — und zwar an klar benennbaren Stellen.
+sie scheitern *kann* — und zwar an klar benennbaren Stellen. Der Kernkalkül ist
+inzwischen in Lean 4 maschinell geprüft; die philosophische und empirische
+Arbeit bleibt offen.
 :::
 
 ## Die fünf methodischen Säulen

@@ -107,7 +107,9 @@ Einige Fragen sind bereits entschieden:
 
 Die Reihenfolge ist bewusst:
 
-1. F0.3 (Konsistenz) — ohne formale Grundlage ist alles andere Spekulation.
+1. F0.3 (Konsistenz) — für den Kernkalkül erledigt (Lean 4,
+   [Formale Verifikation](/docs/forschung/formale-verifikation)); offen bleibt
+   die Konsistenz konkreter Invarianten.
 2. F0.1 (Invarianten) — ohne inhaltliche Invariante ist die Theorie leer.
 3. F0.2 (Wahrheit) — ohne Wahrheitsbegriff ist die Philosophie unklar.
 4. F3.1 (Benchmark) — ohne Empirie ist die Theorie nicht gestützt.

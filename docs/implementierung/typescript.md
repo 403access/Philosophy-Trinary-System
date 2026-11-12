@@ -169,6 +169,12 @@ describe('Trinärität', () => {
 });
 ```
 
+:::note[Formale Referenz]
+Die Lean-4-Fassung in `formal/` ist die geprüfte Referenz für die Struktur
+(Admissibilität, Auswertung, Nicht-Kollaps). Der TypeScript-Code bleibt der
+ausführbare Prototyp; die Beweise ersetzen keine Laufzeittests.
+:::
+
 ## Was fehlt
 
 - **Rückprojektion** $\rho^{\leftarrow}$ für verlustfreie Rekonstruktion.

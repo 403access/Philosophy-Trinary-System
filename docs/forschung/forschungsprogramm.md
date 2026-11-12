@@ -55,13 +55,16 @@ ist nachprüfbar.
 **Aufgaben:**
 
 - Logischer Beweis: Vermeidet das System den *epistemic collapse*?
+  ✅ Kernkalkül in Lean 4 maschinell geprüft
+  ([Formale Verifikation](/docs/forschung/formale-verifikation)).
 - Algorithmischer Prototyp in TypeScript oder Rust.
 - Demonstration an einem Mini-Wissensgraphen mit kontroversen Aussagen.
 
-**Ergebnis:** [Implementierung](/docs/implementierung/architektur).
+**Ergebnis:** [Implementierung](/docs/implementierung/architektur),
+[formale Verifikation](/docs/forschung/formale-verifikation).
 
 **Erfolgskriterium:** Der Prototyp läuft; die Nicht-Kollaps-Eigenschaft ist
-getestet.
+maschinell geprüft und im Prototyp getestet.
 
 ## Phase 4 — Struktur der wissenschaftlichen Arbeit
 

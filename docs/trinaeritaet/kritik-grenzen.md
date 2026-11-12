@@ -136,7 +136,10 @@ Um zu bestehen, muss die Trinärität mindestens zeigen:
 5. **Implementierbarkeit:** Ein lauffähiger Prototyp, der die Struktur
    demonstriert.
 
-Punkte 4 und 5 sind bereits angelegt. Punkte 1–3 sind die eigentliche Arbeit.
+Punkt 4 ist angelegt, Punkt 5 teilweise (TypeScript-Prototyp und Lean-4-Referenz).
+Der formale Teil von Punkt 3 ist mit der [Formalen Verifikation](/docs/forschung/formale-verifikation)
+erledigt; die eigentliche Arbeit bleibt die inhaltliche Invariantenwahl
+(Punkt 1) und die Empirie (Punkt 2).
 
 ## Fazit
 
