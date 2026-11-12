@@ -38,11 +38,18 @@ const mime = {
   '.ico': 'image/x-icon',
 };
 
+const BASE_PATH = '/Philosophy-Trinary-System';
+
 function resolveFile(urlPath) {
-  const clean = decodeURIComponent(urlPath.split('?')[0]);
+  let clean = decodeURIComponent(urlPath.split('?')[0]);
+  if (clean.startsWith(BASE_PATH)) {
+    clean = clean.slice(BASE_PATH.length) || '/';
+  }
   const candidate = path.join(buildDir, clean);
   if (!candidate.startsWith(buildDir)) return null;
   if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) return candidate;
+  const html = `${candidate}.html`;
+  if (fs.existsSync(html) && fs.statSync(html).isFile()) return html;
   const index = path.join(candidate, 'index.html');
   if (fs.existsSync(index)) return index;
   return null;
@@ -70,7 +77,7 @@ try {
   for (const [name, route, width, height] of routes) {
     const page = await browser.newPage();
     await page.setViewport({width, height, deviceScaleFactor: 1});
-    await page.goto(`http://127.0.0.1:${port}${route}`, {
+    await page.goto(`http://127.0.0.1:${port}${BASE_PATH}/${route.replace(/^\//, '')}`, {
       waitUntil: 'networkidle0',
       timeout: 90000,
     });
@@ -84,7 +91,7 @@ try {
   // Dark mode home
   const dark = await browser.newPage();
   await dark.setViewport({width: 1440, height: 2200, deviceScaleFactor: 1});
-  await dark.goto(`http://127.0.0.1:${port}/`, {waitUntil: 'networkidle0'});
+  await dark.goto(`http://127.0.0.1:${port}${BASE_PATH}`, {waitUntil: 'networkidle0'});
   await dark.evaluate(() => document.documentElement.setAttribute('data-theme', 'dark'));
   await new Promise((r) => setTimeout(r, 700));
   await dark.screenshot({path: path.join(outDir, 'home-dark.png')});

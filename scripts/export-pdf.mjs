@@ -102,13 +102,21 @@ const mime = {
   '.pdf': 'application/pdf',
 };
 
+const BASE_PATH = '/Philosophy-Trinary-System';
+
 function resolveFile(urlPath) {
-  const clean = decodeURIComponent(urlPath.split('?')[0]);
+  let clean = decodeURIComponent(urlPath.split('?')[0]);
+  if (clean.startsWith(BASE_PATH)) {
+    clean = clean.slice(BASE_PATH.length) || '/';
+  }
   const candidate = path.join(buildDir, clean);
   if (!candidate.startsWith(buildDir)) return null;
   if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) {
     return candidate;
   }
+  // trailingSlash: false produces docs/intro.html instead of docs/intro/index.html
+  const html = `${candidate}.html`;
+  if (fs.existsSync(html) && fs.statSync(html).isFile()) return html;
   const index = path.join(candidate, 'index.html');
   if (fs.existsSync(index)) return index;
   return null;
@@ -515,7 +523,7 @@ async function main() {
     const chapterPageCounts = [];
 
     for (const [i, chapter] of chapters.entries()) {
-      const url = `${base}${chapter.route}`;
+      const url = `${base}${BASE_PATH}/${chapter.route.replace(/^\//, '')}`;
       console.log(`▸ Kapitel ${i + 1}/${chapters.length}: ${chapter.route}`);
       const page = await browser.newPage();
       await page.setViewport({width: 1200, height: 1600, deviceScaleFactor: 2});

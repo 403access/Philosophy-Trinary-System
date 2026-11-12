@@ -6,6 +6,11 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+const siteUrl = 'https://403access.github.io';
+const baseUrl = '/Philosophy-Trinary-System/';
+const repoUrl =
+  'https://github.com/403access/Philosophy-Trinary-System';
+
 const config: Config = {
   title: 'Mathematische Philosophie',
   tagline:
@@ -16,11 +21,12 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://trinaeritaet.example.org',
-  baseUrl: '/',
+  url: siteUrl,
+  baseUrl,
+  trailingSlash: false,
 
-  organizationName: 'mathematische-philosophie',
-  projectName: 'trinaeritaet',
+  organizationName: '403access',
+  projectName: 'Philosophy-Trinary-System',
 
   onBrokenLinks: 'warn',
 
@@ -58,8 +64,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
-          editUrl:
-            'https://github.com/mathematische-philosophie/trinaeritaet/tree/main/',
+          editUrl: `${repoUrl}/tree/main/`,
         },
         blog: {
           path: 'blog',
@@ -74,8 +79,7 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          editUrl:
-            'https://github.com/mathematische-philosophie/trinaeritaet/tree/main/',
+          editUrl: `${repoUrl}/tree/main/`,
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -96,7 +100,7 @@ const config: Config = {
     announcementBar: {
       id: 'preprint-v01',
       content:
-        '📄 Preprint v0.1 — Das Forschungsprogramm zur Trinärität ist als PDF verfügbar. <a href="/paper">Paper lesen &amp; herunterladen</a>',
+        `📄 Preprint v0.1 — Das Forschungsprogramm zur Trinärität ist als PDF verfügbar. <a href="${baseUrl}paper">Paper lesen &amp; herunterladen</a>`,
       backgroundColor: '#0f6b6b',
       textColor: '#fbfaf7',
       isCloseable: true,
@@ -120,7 +124,7 @@ const config: Config = {
         {to: '/paper', label: 'Paper & PDF', position: 'left'},
         {to: '/forschung', label: 'Forschungslog', position: 'left'},
         {
-          href: 'https://github.com/mathematische-philosophie/trinaeritaet',
+          href: repoUrl,
           label: 'GitHub',
           position: 'right',
         },
@@ -153,7 +157,7 @@ const config: Config = {
             {label: 'Paper als PDF', to: '/paper'},
             {label: 'Glossar', to: '/docs/glossar'},
             {label: 'Referenzen', to: '/docs/referenzen'},
-            {label: 'GitHub', href: 'https://github.com/mathematische-philosophie/trinaeritaet'},
+            {label: 'GitHub', href: repoUrl},
           ],
         },
       ],

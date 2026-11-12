@@ -36,7 +36,7 @@ Dokumentation und druckfertiges Paper.
 
 ```bash
 npm install
-npm run start        # Dev-Server auf http://localhost:3000
+npm run start        # Dev-Server auf http://localhost:3000/Philosophy-Trinary-System/
 ```
 
 Produktions-Build:
@@ -74,6 +74,24 @@ Der Export nutzt:
 4. `pdf-lib` zum Zusammenführen und Nummerieren der Seiten.
 
 Konfiguration der Kapitelreihenfolge: `scripts/export-pdf.mjs` → `chapters`.
+
+## Deployment (GitHub Pages)
+
+Die Site wird automatisch über **GitHub Actions** auf **GitHub Pages** deployt.
+
+- **Live:** <https://403access.github.io/Philosophy-Trinary-System/>
+- **Workflow:** `.github/workflows/deploy.yml`
+- **Trigger:** Push auf `main` oder manuell über `workflow_dispatch`
+- **Pages-Quelle:** GitHub Actions (`Settings → Pages → Build and deployment`)
+- **Build:** `npm ci` → `npm run build` → Upload des `build/`-Verzeichnisses
+
+Die `baseUrl` ist auf `/Philosophy-Trinary-System/` gesetzt, weil es sich um
+eine Projektseite handelt. Für eine Custom Domain müssen `url` und `baseUrl` in
+`docusaurus.config.ts` angepasst werden.
+
+Das PDF liegt bereits unter `static/pdf/` im Repository und wird dadurch ohne
+zusätzlichen CI-Schritt mitdeployt. Nach inhaltlichen Änderungen kann es lokal
+mit `npm run build:pdf` neu erzeugt und eingecheckt werden.
 
 ## Visual QA
 

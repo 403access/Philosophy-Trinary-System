@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './paper.module.css';
 
 const contents = [
@@ -107,6 +108,15 @@ function DownloadIcon() {
 }
 
 export default function PaperPage(): ReactNode {
+  const pdfUrl = useBaseUrl('/pdf/trinaeritaet-paper.pdf');
+  const docsUrl = useBaseUrl('/docs/intro');
+
+  const resolveHref = (href: string): string => {
+    if (href === '/pdf/trinaeritaet-paper.pdf') return pdfUrl;
+    if (href === '/docs/intro') return docsUrl;
+    return href;
+  };
+
   return (
     <Layout
       title="Paper & PDF"
@@ -126,7 +136,7 @@ export default function PaperPage(): ReactNode {
             <div className={styles.actions}>
               <a
                 className={clsx('button button--primary button--lg', styles.pdfButton)}
-                href="/pdf/trinaeritaet-paper.pdf"
+                href={pdfUrl}
                 download>
                 <DownloadIcon />
                 PDF herunterladen
@@ -200,7 +210,7 @@ export default function PaperPage(): ReactNode {
                 <a
                   key={f.tag}
                   className={clsx(styles.formatCard, f.accent && styles.accent)}
-                  href={f.href}
+                  href={resolveHref(f.href)}
                   {...(f.href.startsWith('http') ? {target: '_blank', rel: 'noreferrer'} : {})}>
                   <span className={styles.formatTag}>{f.tag}</span>
                   <h3>{f.title}</h3>
@@ -229,7 +239,7 @@ export default function PaperPage(): ReactNode {
                   <Link className="button button--primary" to="/docs/intro">
                     Kapitel 1 beginnen
                   </Link>
-                  <a className="button button--secondary" href="/pdf/trinaeritaet-paper.pdf" download>
+                  <a className="button button--secondary" href={pdfUrl} download>
                     Gesamtes PDF
                   </a>
                 </div>
